@@ -1,0 +1,49 @@
+{
+    "name": "jeroen-g/blade-macro",
+    "description": "Create small, file-specific, macros in Blade like Twig has.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeroen",
+            "email": "jeroengjeroeng@gmail.com",
+            "homepage": "https://jeroeng.dev"
+        }
+    ],
+    "homepage": "https://github.com/jeroen-g/blade-macro",
+    "keywords": ["Laravel", "Blade", "macro", "Twig"],
+    "require": {
+        "php": "8.0.*||8.1.*||8.2.*",
+        "illuminate/support": "^9.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.0",
+        "mockery/mockery": "^1.5",
+        "infection/infection": "^0.26",
+        "symplify/easy-coding-standard": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JeroenG\\BladeMacro\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeroenG\\BladeMacro\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeroenG\\BladeMacro\\BladeMacroServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "infection/extension-installer": false
+        }
+    }
+}
