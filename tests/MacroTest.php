@@ -50,7 +50,7 @@ class MacroTest extends TestCase
     {
         Macro::$macros['testcase'] = 'hello';
 
-        $macro = Macro::show('testcase');
+        $macro = Macro::show('testcase ');
 
         self::assertSame(
             "<?php echo \JeroenG\BladeMacro\Macro::\$macros['testcase'](); ?>",
@@ -60,7 +60,7 @@ class MacroTest extends TestCase
 
     public function test_showing_undefined_macro_throws_exception(): void
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('The `testcase` macro is not defined.');
 
         self::assertEmpty(Macro::$macros);

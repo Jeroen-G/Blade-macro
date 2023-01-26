@@ -11,16 +11,8 @@ class BladeMacroServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Blade::directive('macro', function ($macroName) {
-            return Macro::define($macroName);
-        });
-
-        Blade::directive('endMacro', function () {
-            return Macro::endDefinition();
-        });
-
-        Blade::directive('showMacro', function ($expression) {
-            return Macro::show($expression);
-        });
+        Blade::directive('macro', fn ($macroName) => Macro::define($macroName));
+        Blade::directive('endMacro', fn () => Macro::endDefinition());
+        Blade::directive('showMacro', fn ($expression) => Macro::show($expression));
     }
 }

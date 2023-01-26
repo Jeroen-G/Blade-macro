@@ -6,6 +6,7 @@ namespace JeroenG\BladeMacro;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
+use InvalidArgumentException;
 
 final class Macro
 {
@@ -22,7 +23,7 @@ final class Macro
         $macroName = $arguments->first();
 
         if (!array_key_exists($macroName, self::$macros)) {
-            throw new \Exception("The `$macroName` macro is not defined.");
+            throw new InvalidArgumentException("The `$macroName` macro is not defined.");
         }
 
         $args = $arguments->except([0])->implode(',');
